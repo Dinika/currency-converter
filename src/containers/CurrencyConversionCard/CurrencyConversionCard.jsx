@@ -6,6 +6,10 @@ import LoadingAnimation from '../../components/LoadingAnimation/LoadingAnimation
 
 class CurrencyConversionCard extends Component {
     constructor(props) {
+        /*
+        For a larger application I would keep only the loading property
+        in this state. Other properties could be transferred to a Redux store
+        */
         super(props);
         this.state = {
             currency1Type: 'EUR',
@@ -18,12 +22,6 @@ class CurrencyConversionCard extends Component {
         this.currencyOptions = [];
     }
     
-    computeCurrency(fromCurrencyAmount, fromCurrencyType, toCurrencyType) {
-        const currencies = this.currencies,
-            toCurrencyAmount = fromCurrencyAmount * currencies[fromCurrencyType].rates[toCurrencyType]; 
-        return toCurrencyAmount;
-    }
-
     componentDidMount() {
         axios.get('/currencies.json')
             .then(response => {
@@ -37,6 +35,12 @@ class CurrencyConversionCard extends Component {
             .catch(error => {console.log(error)});
     }
 
+    computeCurrency(fromCurrencyAmount, fromCurrencyType, toCurrencyType) {
+        const currencies = this.currencies,
+            toCurrencyAmount = fromCurrencyAmount * currencies[fromCurrencyType].rates[toCurrencyType]; 
+        return toCurrencyAmount;
+    }
+    
     onCurrencyAmountChange(event) {
         const fromCurrencyAmount = +event.target.value;
         if(event.target.name === 'currency1') {
