@@ -66,21 +66,21 @@ class CurrencyConversionCard extends Component {
     onCurrencyTypeChange(event) {
         const fromCurrencyType = event.target.value;
         if(event.target.name === 'currency1') {
-            const fromCurrencyAmount = this.state.currency1Amount,
+            const fromCurrencyAmount = this.state.currency2Amount,
             toCurrencyType = this.state.currency2Type,
             toCurrencyAmount = this.computeCurrency(fromCurrencyAmount, fromCurrencyType, toCurrencyType);
             
             this.setState({
                 currency1Type: fromCurrencyType,
-                currency2Amount: toCurrencyAmount,
+                currency1Amount: toCurrencyAmount,
             });            
         } else {
-            const fromCurrencyAmount = this.state.currency2Amount,
+            const fromCurrencyAmount = this.state.currency1Amount,
                 toCurrencyType = this.state.currency1Type,
                 toCurrencyAmount = this.computeCurrency(fromCurrencyAmount, fromCurrencyType, toCurrencyType);
             this.setState({
                 currency2Type: fromCurrencyType,
-                currency1Amount: toCurrencyAmount,
+                currency2Amount: toCurrencyAmount,
             });
         }
     }
