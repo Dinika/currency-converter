@@ -5,11 +5,18 @@ const CurrencyDetailForm = (props) => {
     return (
         <Form>
             <Form.Group widths='equal'>
-                <Form.Field placeholder='0.00' control='input' />
-                <Form.Field control='select'>
-                    <option value='EUR'>EUR</option>
-                    <option value='USD'>USD</option>
-                    <option value='JPY'>JPY</option>
+                <Form.Field
+                    placeholder={props.currencyAmount}
+                    control='input' 
+                    value={props.currencyAmount}
+                    name={props.name} 
+                    type="number"
+                    onChange={props.onCurrencyAmountChange} 
+                />
+                <Form.Field control='select' onChange={props.onCurrencyChange}>
+                    {
+                        props.currencyOptions.map(currency => <option key={currency} value={currency}>{currency}</option>)
+                    }
                 </Form.Field>
             </Form.Group>
         </Form>
