@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout renders with all props set 1`] = `
+<Aux>
+  <Header
+    title="Currency Converter"
+  />
+  <Grid
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+    textAlign="center"
+    verticalAlign="middle"
+  >
+    <GridColumn
+      style={
+        Object {
+          "maxWidth": 450,
+        }
+      }
+    >
+      <Header
+        as="h3"
+        textAlign="center"
+      >
+        Convert Euros, Dollars, and Japanese Yen
+      </Header>
+      <CurrencyConversionCard />
+    </GridColumn>
+  </Grid>
+</Aux>
+`;

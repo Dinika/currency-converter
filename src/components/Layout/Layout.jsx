@@ -4,10 +4,10 @@ import Aux from '../../HOC/Aux/Aux';
 import { Grid, Header } from 'semantic-ui-react';
 import CurrencyConversionCard from '../../containers/CurrencyConversionCard/CurrencyConversionCard';
 
-const Layout = (props) => {
+const Layout = () => {
     return(
         <Aux>
-            <TopBar />
+            <TopBar title="Currency Converter" />
             <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 450 }}>
                     <Header as='h3' textAlign='center'>

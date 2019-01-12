@@ -5,8 +5,8 @@ const Header = (props) => {
     return (
         <Menu>
             <Menu.Item
-                name='editorials'>
-                Currency Converter
+                name='appTitle'>
+                {props.title}
             </Menu.Item>
         </Menu>
     )

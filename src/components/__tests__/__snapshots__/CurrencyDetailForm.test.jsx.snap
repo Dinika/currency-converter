@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CurrencyDetailForm renders with all props set 1`] = `
+<Form
+  as="form"
+>
+  <FormGroup
+    widths="equal"
+  >
+    <FormField
+      control="input"
+      onChange={[MockFunction]}
+      placeholder={10}
+      type="number"
+      value={10}
+    />
+    <FormField
+      control="select"
+      onChange={[MockFunction]}
+    >
+      <option
+        key="Option1"
+        value="Option1"
+      >
+        Option1
+      </option>
+      <option
+        key="Option2"
+        value="Option2"
+      >
+        Option2
+      </option>
+    </FormField>
+  </FormGroup>
+</Form>
+`;
