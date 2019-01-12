@@ -29,7 +29,6 @@ class CurrencyDetailForm extends Component {
                     <Form.Field 
                         name={this.props.name} 
                         control='select'
-                        value={this.props.selectedValue}
                         onChange={this.props.onCurrencyTypeChange}>
                         {this.renderCurrencyOptions()}
                     </Form.Field>
