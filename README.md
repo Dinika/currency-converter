@@ -48,3 +48,11 @@ $ yarn test
 - enzyme: react testing utilities
 - eslint: linter for js and jsx files (uses airbnb's styleguide)
 - axios: for making HTTP requests to the API 
+
+## License
+MIT License
+
+## Author :angel:
+
+Dinika Saxena 
+e-mail: dinika.saxenas@gmail.com
