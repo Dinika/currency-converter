@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TopBar from '../TopBar/TopBar';
 import Aux from '../../HOC/Aux/Aux';
 import { Grid, Header } from 'semantic-ui-react';

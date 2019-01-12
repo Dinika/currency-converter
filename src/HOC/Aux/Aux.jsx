@@ -1,9 +1,3 @@
-import React, {Component} from 'react';
-
-class Aux extends Component {
-    render() {
-        return (this.props.children);
-    }
-}
+const Aux = (props) => (props.children);
 
 export default Aux;
