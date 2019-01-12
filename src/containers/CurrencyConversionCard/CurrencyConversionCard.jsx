@@ -1,35 +1,8 @@
 import React, { Component } from 'react';
 import { Segment } from 'semantic-ui-react';
 import CurrencyDetailForm from '../../components/CurrencyDetailForm/CurrencyDetailForm';
-
-const currencies = {
-    'EUR' : {
-        rates: {
-            'USD': 0.5,
-            'EUR': 1,
-            'JPY': 0.25,
-        }
-    },
-    'USD' : {
-        rates: {
-            'USD': 1,
-            'EUR': 2,
-            'JPY': 0.25,
-        }
-    },
-    'JPY' : {
-        rates: {
-            'USD': 2,
-            'EUR': 4,
-            'JPY': 1,
-        }
-    }
-}
-
-let currencyOptions = [];
-for (let key in currencies) {
-    currencyOptions.push(key)
-}
+import axios from '../../axios-currencies';
+import LoadingAnimation from '../../components/LoadingAnimation/LoadingAnimation';
 
 class CurrencyConversionCard extends Component {
     constructor(props) {
@@ -39,12 +12,29 @@ class CurrencyConversionCard extends Component {
             currency1Amount: 0.00,
             currency2Type: 'EUR',
             currency2Amount: 0.00,
+            loading: true,
         }
+        this.currencies = {};
+        this.currencyOptions = [];
     }
     
-    static computeCurrency(fromCurrencyAmount, fromCurrencyType, toCurrencyType) {
-        const toCurrencyAmount = fromCurrencyAmount * currencies[fromCurrencyType].rates[toCurrencyType]; 
+    computeCurrency(fromCurrencyAmount, fromCurrencyType, toCurrencyType) {
+        const currencies = this.currencies,
+            toCurrencyAmount = fromCurrencyAmount * currencies[fromCurrencyType].rates[toCurrencyType]; 
         return toCurrencyAmount;
+    }
+
+    componentDidMount() {
+        axios.get('/currencies.json')
+            .then(response => {
+                //currencies is not a deep copy of response data
+                this.currencies = {...response.data};
+                for(let key in response.data) {
+                    this.currencyOptions.push(key);
+                }
+                this.setState({loading: false})
+            })
+            .catch(error => {console.log(error)});
     }
 
     onCurrencyAmountChange(event) {
@@ -52,19 +42,17 @@ class CurrencyConversionCard extends Component {
         if(event.target.name === 'currency1') {
             const fromCurrencyType = this.state.currency1Type,
             toCurrencyType = this.state.currency2Type,
-            toCurrencyAmount = CurrencyConversionCard.computeCurrency(fromCurrencyAmount, fromCurrencyType, toCurrencyType);
+            toCurrencyAmount = this.computeCurrency(fromCurrencyAmount, fromCurrencyType, toCurrencyType);
             
             this.setState({
-                ...this.state,
                 currency1Amount: fromCurrencyAmount,
                 currency2Amount: toCurrencyAmount,
             });            
         } else {
             const fromCurrencyType = this.state.currency2Type,
                 toCurrencyType = this.state.currency1Type,
-                toCurrencyAmount = CurrencyConversionCard.computeCurrency(fromCurrencyAmount, fromCurrencyType, toCurrencyType);
+                toCurrencyAmount = this.computeCurrency(fromCurrencyAmount, fromCurrencyType, toCurrencyType);
             this.setState({
-                ...this.state,
                 currency2Amount: fromCurrencyAmount,
                 currency1Amount: toCurrencyAmount,
             });
@@ -76,19 +64,17 @@ class CurrencyConversionCard extends Component {
         if(event.target.name === 'currency1') {
             const fromCurrencyAmount = this.state.currency1Amount,
             toCurrencyType = this.state.currency2Type,
-            toCurrencyAmount = CurrencyConversionCard.computeCurrency(fromCurrencyAmount, fromCurrencyType, toCurrencyType);
+            toCurrencyAmount = this.computeCurrency(fromCurrencyAmount, fromCurrencyType, toCurrencyType);
             
             this.setState({
-                ...this.state,
                 currency1Type: fromCurrencyType,
                 currency2Amount: toCurrencyAmount,
             });            
         } else {
             const fromCurrencyAmount = this.state.currency2Amount,
                 toCurrencyType = this.state.currency1Type,
-                toCurrencyAmount = CurrencyConversionCard.computeCurrency(fromCurrencyAmount, fromCurrencyType, toCurrencyType);
+                toCurrencyAmount = this.computeCurrency(fromCurrencyAmount, fromCurrencyType, toCurrencyType);
             this.setState({
-                ...this.state,
                 currency2Type: fromCurrencyType,
                 currency1Amount: toCurrencyAmount,
             });
@@ -98,24 +84,26 @@ class CurrencyConversionCard extends Component {
 
 
     render() {
-        return (
-            <Segment stacked>
+        const loaderOrCurrencyDetailForm = this.state.loading ?
+            <LoadingAnimation /> :
+            (<Segment stacked>
                 <CurrencyDetailForm
                     name="currency1" 
-                    currencyOptions={currencyOptions} 
+                    currencyOptions={[...this.currencyOptions]} 
                     onCurrencyAmountChange={this.onCurrencyAmountChange.bind(this)}
                     onCurrencyTypeChange={this.onCurrencyTypeChange.bind(this)}
                     currencyAmount={this.state.currency1Amount}
                 />
                 <CurrencyDetailForm 
                     name="currency2"
-                    currencyOptions={currencyOptions} 
+                    currencyOptions={[...this.currencyOptions]} 
                     onCurrencyAmountChange={this.onCurrencyAmountChange.bind(this)}
                     onCurrencyTypeChange={this.onCurrencyTypeChange.bind(this)}
                     currencyAmount={this.state.currency2Amount} 
                 />
-            </Segment>
-        )
+            </Segment>)
+
+        return loaderOrCurrencyDetailForm
     }
 }
 
