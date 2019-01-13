@@ -5,8 +5,10 @@ import CurrencyDetailForm from '../CurrencyDetailForm/CurrencyDetailForm';
 
 describe('CurrencyDetailForm', () => {
   it('renders with all props set', () => {
-    const currencyOptions = ['Option1', 'Option2'],
-        currencyAmount = 10;        
+    const currencyOptions = ['Option1', 'Option2'];
+
+        
+const currencyAmount = 10;        
     const wrapper = shallow(
         <CurrencyDetailForm
             currencyOptions={currencyOptions}

@@ -8,10 +8,19 @@
         "extensions": [".js", ".jsx"]
       }
     ],
+    "react/destructuring-assignment": 0,
+    "react/jsx-no-bind": 0,
+    "react/prefer-stateless-function": 0,
     "react/prop-types": 0,
     "no-underscore-dangle": 0,
     "import/imports-first": ["error", "absolute-first"],
-    "import/newline-after-import": "error"
+    "import/newline-after-import": "error",
+    "import/no-extraneous-dependencies": [
+      "off",
+      {
+        "devDependencies": ["**/*.test.jsx?"]
+      }
+    ]
   },
   "globals": {
     "window": true,
@@ -21,6 +30,9 @@
     "FileReader": true,
     "Blob": true,
     "navigator": true
+  },
+  "env": {
+    "jest": true
   },
   "parser": "babel-eslint"
 }
