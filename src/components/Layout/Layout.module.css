@@ -1,0 +1,15 @@
+.Grid {
+    height: 100%;
+}
+
+.Column {
+    max-width: 700px;
+    height: 100%;
+    display: flex !important;
+    justify-content: center;
+}
+
+.Card {
+    height: 50%;
+    justify-content: center;
+}

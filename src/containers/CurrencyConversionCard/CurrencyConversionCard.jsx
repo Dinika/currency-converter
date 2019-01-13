@@ -3,6 +3,7 @@ import { Segment } from 'semantic-ui-react';
 import CurrencyDetailForm from '../../components/CurrencyDetailForm/CurrencyDetailForm';
 import axios from '../../axios-currencies';
 import LoadingAnimation from '../../components/LoadingAnimation/LoadingAnimation';
+import CurrencySummary from '../../components/CurrencySummary/CurrencySummary';
 
 class CurrencyConversionCard extends Component {
     constructor(props) {
@@ -37,7 +38,7 @@ class CurrencyConversionCard extends Component {
 
     computeCurrency(fromCurrencyAmount, fromCurrencyType, toCurrencyType) {
         const currencies = this.currencies,
-            toCurrencyAmount = fromCurrencyAmount * currencies[fromCurrencyType].rates[toCurrencyType]; 
+            toCurrencyAmount = (fromCurrencyAmount * currencies[fromCurrencyType].rates[toCurrencyType]).toFixed(2); 
         return toCurrencyAmount;
     }
     
@@ -88,9 +89,18 @@ class CurrencyConversionCard extends Component {
 
 
     render() {
+        const fromCurrencyType = this.state.currency1Type,
+            targetCurrencyType = this.state.currency2Type,
+            targetCurrencyValue = this.currencies[fromCurrencyType] ?  
+                this.currencies[fromCurrencyType].rates[targetCurrencyType] : 0.00;
+        
         const loaderOrCurrencyDetailForm = this.state.loading ?
             <LoadingAnimation /> :
             (<Segment stacked>
+                <CurrencySummary 
+                    fromCurrencyType={fromCurrencyType}
+                    targetCurrencyType={targetCurrencyType}
+                    targetCurrencyAmount={targetCurrencyValue} />
                 <CurrencyDetailForm
                     name="currency1" 
                     currencyOptions={[...this.currencyOptions]} 

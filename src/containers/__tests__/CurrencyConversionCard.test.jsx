@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import mockAxios from 'axios';
 import CurrencyConversionCard from '../CurrencyConversionCard/CurrencyConversionCard';
 
 describe('CurrencyConversionCard', () => {
