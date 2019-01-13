@@ -2,7 +2,7 @@
 
 exports[`TopBar renders with all props set 1`] = `
 <Menu
-  className="TopBar"
+  className="__TopBar__"
 >
   <MenuItem
     name="appTitle"

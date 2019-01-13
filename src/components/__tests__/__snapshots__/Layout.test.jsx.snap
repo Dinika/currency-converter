@@ -6,20 +6,12 @@ exports[`Layout renders with all props set 1`] = `
     title="Currency Converter"
   />
   <Grid
-    className="Grid"
     textAlign="center"
     verticalAlign="middle"
   >
-    <GridColumn
-      className="Column"
-      style={
-        Object {
-          "maxWidth": 700,
-        }
-      }
-    >
+    <GridColumn>
       <Header
-        as="h3"
+        as="h4"
         textAlign="center"
       >
         Convert Euros, Dollars, and Japanese Yen
@@ -27,5 +19,8 @@ exports[`Layout renders with all props set 1`] = `
       <CurrencyConversionCard />
     </GridColumn>
   </Grid>
+  <Footer
+    title="Currency Converter"
+  />
 </Aux>
 `;

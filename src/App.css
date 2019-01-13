@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+.App {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-color: #eaeaea;
+  align-items: center;
+  justify-content: center;
+}
+
+.column,
+.segment,
+.stacked {
+  padding: 0px !important;
+}
+
+h3 {
+  font-family: Lato, Arial, Helvetica, sans-serif !important;
+  font-weight: 500;
+  color: #697075;
+}
+
+.ui.stacked.segment {
+  padding: 10px 10px !important;
+  background-color: #edeeef;
+}
+
+footer {
+  position: fixed;
+  bottom: 10px;
+  width: 100vw;
+  text-align: center;
+  color: #697075;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  .ui.grid {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .ui.grid {
+    width: 60%;
+  }
+  .ui.form {
+    font-size: 1.25rem;
+    margin: 40px;
+  }
+  .ui.stacked.segment {
+    padding: 50px !important;
+  }
+}

@@ -6,15 +6,15 @@
        Fonts
 --------------------*/
 
-@fontName          : 'Lato';
+@fontName          : 'Poppins';
 @fontSmoothing     : antialiased;
 
-@headerFont        : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
-@pageFont          : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@headerFont        : @googleFontName, 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@pageFont          : @googleFontName, 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
 @googleFontName    : @fontName;
 @importGoogleFonts : true;
-@googleFontSizes   : '400,700,400italic,700italic';
+@googleFontSizes   : '400,800,900,700italic';
 @googleSubset      : 'latin';
 
 @googleProtocol    : 'https://';

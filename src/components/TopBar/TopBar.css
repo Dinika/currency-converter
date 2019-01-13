@@ -1,0 +1,23 @@
+.ui.menu {
+  box-sizing: border-box;
+  width: 100vw;
+  background: #2e303d;
+  position: fixed;
+  top: 0px;
+  height: 100px;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.ui.menu > .item {
+  font-family: Poppins, Lato, Arial, sans-serif;
+  font-size: 2em;
+  font-weight: 800;
+  color: #f8fbfd;
+}
+
+.ui.header {
+  color: #8c888e;
+  font-family: Lato;
+}

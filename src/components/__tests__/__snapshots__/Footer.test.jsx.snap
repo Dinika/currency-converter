@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders with all props set 1`] = `
+<footer>
+  Some Title
+   Copyright © 2019 Dinika Saxena All Rights Reserved
+   
+  <Icon
+    as="i"
+    name="github"
+  />
+  Fork me on
+   
+  <a
+    href="https://github.com/Dinika/currency-converter.git"
+  >
+    GitHub
+  </a>
+</footer>
+`;
