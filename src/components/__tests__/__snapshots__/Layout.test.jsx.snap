@@ -6,18 +6,15 @@ exports[`Layout renders with all props set 1`] = `
     title="Currency Converter"
   />
   <Grid
-    style={
-      Object {
-        "height": "100%",
-      }
-    }
+    className="Grid"
     textAlign="center"
     verticalAlign="middle"
   >
     <GridColumn
+      className="Column"
       style={
         Object {
-          "maxWidth": 450,
+          "maxWidth": 700,
         }
       }
     >

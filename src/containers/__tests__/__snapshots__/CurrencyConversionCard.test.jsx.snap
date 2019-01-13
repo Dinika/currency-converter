@@ -4,6 +4,11 @@ exports[`CurrencyConversionCard renders CurrencyDetailForm when loading set to f
 <Segment
   stacked={true}
 >
+  <CurrencySummary
+    fromCurrencyType="EUR"
+    targetCurrencyAmount={0}
+    targetCurrencyType="EUR"
+  />
   <CurrencyDetailForm
     currencyAmount={0}
     currencyOptions={Array []}
@@ -22,26 +27,3 @@ exports[`CurrencyConversionCard renders CurrencyDetailForm when loading set to f
 `;
 
 exports[`CurrencyConversionCard renders Loader when loading is true 1`] = `<LoadingAnimation />`;
-
-exports[`CurrencyConversionCard renders initial state 1`] = `<LoadingAnimation />`;
-
-exports[`CurrencyConversionCard renders initial state 2`] = `
-<Segment
-  stacked={true}
->
-  <CurrencyDetailForm
-    currencyAmount={0}
-    currencyOptions={Array []}
-    name="currency1"
-    onCurrencyAmountChange={[Function]}
-    onCurrencyTypeChange={[Function]}
-  />
-  <CurrencyDetailForm
-    currencyAmount={0}
-    currencyOptions={Array []}
-    name="currency2"
-    onCurrencyAmountChange={[Function]}
-    onCurrencyTypeChange={[Function]}
-  />
-</Segment>
-`;
