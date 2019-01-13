@@ -6,6 +6,7 @@ import CurrencyDetailForm from '../../components/CurrencyDetailForm/CurrencyDeta
 import axios from '../../axios-currencies';
 import LoadingAnimation from '../../components/LoadingAnimation/LoadingAnimation';
 import CurrencySummary from '../../components/CurrencySummary/CurrencySummary';
+import errorHandler from '../../HOC/errorHandler/errorHandler';
 
 class CurrencyConversionCard extends Component {
   constructor(props) {
@@ -146,4 +147,4 @@ class CurrencyConversionCard extends Component {
   }
 }
 
-export default CurrencyConversionCard;
+export default errorHandler(CurrencyConversionCard, axios);

@@ -16,7 +16,7 @@ exports[`Layout renders with all props set 1`] = `
       >
         Convert Euros, Dollars, and Japanese Yen
       </Header>
-      <CurrencyConversionCard />
+      <Component />
     </GridColumn>
   </Grid>
   <Footer

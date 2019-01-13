@@ -1,29 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CurrencyConversionCard renders CurrencyDetailForm when loading set to false 1`] = `
-<Segment
-  stacked={true}
->
-  <CurrencySummary
-    fromCurrencyType="EUR"
-    targetCurrencyAmount={0}
-    targetCurrencyType="EUR"
-  />
-  <CurrencyDetailForm
-    currencyAmount={0}
-    currencyOptions={Array []}
-    name="currency1"
-    onCurrencyAmountChange={[Function]}
-    onCurrencyTypeChange={[Function]}
-  />
-  <CurrencyDetailForm
-    currencyAmount={0}
-    currencyOptions={Array []}
-    name="currency2"
-    onCurrencyAmountChange={[Function]}
-    onCurrencyTypeChange={[Function]}
-  />
-</Segment>
-`;
+exports[`CurrencyConversionCard renders CurrencyDetailForm when loading set to false 1`] = `<CurrencyConversionCard />`;
 
-exports[`CurrencyConversionCard renders Loader when loading is true 1`] = `<LoadingAnimation />`;
+exports[`CurrencyConversionCard renders Loader when loading is true 1`] = `<CurrencyConversionCard />`;
