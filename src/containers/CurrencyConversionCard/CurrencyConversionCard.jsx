@@ -43,6 +43,7 @@ class CurrencyConversionCard extends Component {
   }
 
   onCurrencyAmountChange(event) {
+    // Todo: Refactor
     const fromCurrencyAmount = +event.target.value;
     if (event.target.name === 'currency1') {
       const fromCurrencyType = this.state.currency1Type;
@@ -72,6 +73,7 @@ class CurrencyConversionCard extends Component {
   }
 
   onCurrencyTypeChange(event) {
+    // Todo: Refactor
     const fromCurrencyType = event.target.value;
     if (event.target.name === 'currency1') {
       const fromCurrencyAmount = this.state.currency2Amount;

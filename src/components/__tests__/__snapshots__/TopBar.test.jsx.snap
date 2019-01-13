@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TopBar renders with all props set 1`] = `
-<Menu>
+<Menu
+  className="TopBar"
+>
   <MenuItem
     name="appTitle"
   >

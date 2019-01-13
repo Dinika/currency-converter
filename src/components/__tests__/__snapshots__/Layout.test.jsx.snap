@@ -2,7 +2,7 @@
 
 exports[`Layout renders with all props set 1`] = `
 <Aux>
-  <Header
+  <TopBar
     title="Currency Converter"
   />
   <Grid
